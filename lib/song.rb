@@ -32,11 +32,11 @@ class Song
   end
 
   def self.genre_count
-    @@genres.uniq
+    @@genres.group_by{|e| e}.map{|k, v| [k, v.length]}.to_h
   end
 
   def self.artist_count
-    @@artists.uniq
+    @@artists.group_by{|e| e}.map{|k, v| [k, v.length]}.to_h
   end
 
 
